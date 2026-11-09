@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringboogApplication<springboog>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.informati.spring.springboog.SpringboogApplication",
+            "projectName": "springboog",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
