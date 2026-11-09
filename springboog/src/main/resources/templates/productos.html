@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Catálogo de Productos - <span th:text="${alumno}"></span></h1>
+    
+    <!-- Formulario de búsqueda para @RequestParam -->
+    <form th:action="@{/productos/buscar}" method="get">
+        <label>Filtrar por categoría: 
+            <input type="text" name="categoria" required>
+        </label>
+        <button type="submit">Buscar</button>
+        <a th:href="@{/productos}">Limpiar filtro</a>
+    </form>
+    <br>
+
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+        </tr>
+        <tr th:each="prod : ${productos}">
+            <td th:text="${prod.nombre}"></td>
+            <td th:text="${prod.precio}"></td>
+            <td th:text="${prod.categoria}"></td>
+            <td>
+                <!-- Enlace dinámico para @PathVariable -->
+                <a th:href="@{/producto/{nombre}(nombre=${prod.nombre})}">Ver detalle</a>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <a th:href="@{/nuevo}">Agregar Nuevo Producto</a>
+</body>
+</html>
